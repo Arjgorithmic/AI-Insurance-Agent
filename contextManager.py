@@ -31,8 +31,8 @@ def fetch_relevant_policies(user_input: str, limit: int = 3) -> str:
         conn.close()
         if not rows:
             return "No related policies found."
-        formatted = "\n".join([
-            f"- {r[0]} ({r[1]}): { (r[2] or '')[:300].replace('\\n',' ') }... [Ends: {r[3]}]"
+        formatted = "\n\n".join([
+            f"Policy: {r[1]}\nProvider: {r[2]}\nStart: {r[3]}\nEnd: {r[4]}\nPremium: ₹{r[5]:,.2f}"
             for r in rows
         ])
         return "Related policies from database:\n" + formatted

@@ -179,4 +179,4 @@ with gr.Blocks(title="Insurance Assistant") as demo:
         renewal_output = gr.Textbox(label="Upcoming Renewals", lines=8)
         check_btn.click(check_renewals_ui, inputs=[days_input], outputs=renewal_output)
 
-demo.launch(server_name="0.0.0.0", server_port=7865)
+demo.launch(share=True)
